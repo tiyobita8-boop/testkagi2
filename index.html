@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会員専用ページ</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #dff9fb, #fce4ec);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  color: #555;
+  font-size: 24px;
+}
+
+p {
+  color: #777;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #81ecec, #74b9ff);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+#error {
+  color: red;
+  margin-top: 15px;
+}
+
+#content {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ログイン画面 -->
+<div class="login-box" id="login">
+
+  <h1>🔐 会員専用ページ</h1>
+
+  <p>パスワードを入力してください</p>
+
+  <input
+    type="password"
+    id="password"
+    placeholder="パスワード"
+  >
+
+  <button onclick="checkPassword()">
+    ログインする
+  </button>
+
+  <p id="error"></p>
+
+</div>
+
+<!-- ログイン後の画面 -->
+<div class="login-box" id="content">
+
+  <h1>🌸 ようこそ！</h1>
+
+  <p>ログインに成功しました✨</p>
+
+  <p>
+    感謝の心が<br>
+    素敵な未来をつくります💕
+  </p>
+
+  <button onclick="logout()">
+    ログアウト
+  </button>
+
+</div>
+
+<script>
+
+// パスワード設定
+const correctPassword = "kansya";
+
+// パスワード確認
+function checkPassword() {
+
+  const input =
+    document.getElementById("password").value;
+
+  if (input === correctPassword) {
+
+    document.getElementById("login").style.display = "none";
+
+    document.getElementById("content").style.display = "block";
+
+    sessionStorage.setItem("authenticated", "true");
+
+  } else {
+
+    document.getElementById("error").textContent =
+      "パスワードが違います";
+
+  }
+
+}
+
+// ログアウト
+function logout() {
+
+  sessionStorage.removeItem("authenticated");
+
+  document.getElementById("login").style.display = "block";
+
+  document.getElementById("content").style.display = "none";
+
+  document.getElementById("password").value = "";
+
+}
+
+// ログイン状態を確認
+window.onload = function() {
+
+  if (sessionStorage.getItem("authenticated") === "true") {
+
+    document.getElementById("login").style.display = "none";
+
+    document.getElementById("content").style.display = "block";
+
+  }
+
+};
+
+// Enterキーでもログイン
+document.getElementById("password")
+  .addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+      checkPassword();
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
