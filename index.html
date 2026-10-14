@@ -3,185 +3,1187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>会員専用ページ</title>
+
+<title>宙（そら）｜心がちょっと軽くなる場所</title>
+<meta name="description" content="宙（そら）のホームページ。イシリス33メソッド®、カードリーディング、宙ワーク、みんなの天才発掘塾。自分の可能性や心を、そらと一緒に見つめてみませんか。">
 
 <style>
-* {
-  box-sizing: border-box;
+:root{
+  --blue:#527f91;
+  --light:#edf7f8;
+  --cream:#fffdf8;
+  --orange:#ed9d61;
+  --text:#3f4749;
+  --sub:#70797b;
+  --white:#fff;
+  --shadow:0 15px 40px rgba(65,100,110,.12);
 }
 
-body {
-  margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background: linear-gradient(135deg, #dff9fb, #fce4ec);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  color:var(--text);
+  background:var(--cream);
+  font-family:-apple-system,BlinkMacSystemFont,
+  "Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.9;
+  font-size:17px;
 }
 
-.login-box {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
+img{max-width:100%;display:block}
+
+a{color:inherit}
+
+.container{
+  width:min(1080px,90%);
+  margin:auto;
 }
 
-h1 {
-  color: #555;
-  font-size: 24px;
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,253,248,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #e6eeee;
 }
 
-p {
-  color: #777;
+.header{
+  min-height:68px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
-input {
-  width: 100%;
-  padding: 14px;
-  font-size: 18px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  margin-top: 15px;
-  text-align: center;
+.logo{
+  color:var(--blue);
+  font-weight:800;
+  text-decoration:none;
 }
 
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 20px;
-  background: linear-gradient(135deg, #81ecec, #74b9ff);
-  border: none;
-  border-radius: 10px;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
+nav{
+  display:flex;
+  gap:20px;
+  align-items:center;
 }
 
-button:hover {
-  opacity: 0.85;
+nav a{
+  text-decoration:none;
+  font-size:.9rem;
 }
 
-#error {
-  color: red;
-  margin-top: 15px;
+.contact-small{
+  background:var(--orange);
+  color:#fff;
+  padding:8px 17px;
+  border-radius:50px;
 }
 
-#content {
-  display: none;
+/* HERO */
+
+.hero{
+  padding:90px 0;
+  background:
+  radial-gradient(circle at 85% 20%,#dceff3,transparent 30%),
+  radial-gradient(circle at 10% 80%,#ffedda,transparent 28%);
 }
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:70px;
+}
+
+.eyebrow{
+  color:var(--blue);
+  font-size:.8rem;
+  font-weight:bold;
+  letter-spacing:.16em;
+}
+
+h1{
+  font-size:clamp(2.6rem,6vw,4.8rem);
+  line-height:1.2;
+  margin:15px 0 25px;
+}
+
+h1 span{color:var(--blue)}
+
+.hero strong{
+  color:var(--blue);
+  font-size:1.25rem;
+}
+
+.photo{
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  object-fit:cover;
+  margin:auto;
+  border:10px solid white;
+  box-shadow:var(--shadow);
+}
+
+.name{
+  text-align:center;
+  color:var(--sub);
+}
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  background:var(--orange);
+  color:white;
+  font-weight:bold;
+  padding:15px 27px;
+  border-radius:50px;
+  margin:8px 5px;
+  transition:.2s;
+}
+
+.btn:hover{transform:translateY(-2px)}
+
+.btn-blue{background:var(--blue)}
+
+section{padding:90px 0}
+
+.light{background:var(--light)}
+.white{background:white}
+
+.title{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 50px;
+}
+
+.title h2{
+  font-size:clamp(1.9rem,4vw,2.8rem);
+  margin:8px 0;
+}
+
+.title p{color:var(--sub)}
+
+.center{
+  text-align:center;
+  max-width:760px;
+  margin:auto;
+}
+
+/* SERVICE */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.card{
+  background:white;
+  border-radius:25px;
+  padding:35px;
+  box-shadow:var(--shadow);
+}
+
+.card .icon{font-size:2rem}
+
+.card h3{
+  color:var(--blue);
+  font-size:1.5rem;
+  margin:8px 0;
+}
+
+.price{
+  display:inline-block;
+  margin:12px 0;
+  padding:5px 12px;
+  border-radius:20px;
+  background:#fff0e4;
+  color:#99572d;
+  font-weight:bold;
+}
+
+/* DETAIL */
+
+.detail{
+  max-width:850px;
+  margin:auto;
+}
+
+.detail h2{
+  color:var(--blue);
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1.4;
+}
+
+.detail h3{
+  margin-top:40px;
+  font-size:1.5rem;
+}
+
+.quote{
+  margin:35px 0;
+  padding:25px 30px;
+  background:#fff;
+  border-left:5px solid var(--orange);
+  border-radius:0 15px 15px 0;
+  box-shadow:var(--shadow);
+  font-size:1.15rem;
+  font-weight:bold;
+}
+
+.story{
+  padding:40px;
+  background:white;
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+/* PROFILE */
+
+.profile{
+  display:grid;
+  grid-template-columns:.7fr 1.3fr;
+  gap:60px;
+  align-items:center;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:0;
+}
+
+.tags span{
+  background:var(--light);
+  padding:5px 12px;
+  border-radius:30px;
+  font-size:.85rem;
+}
+
+/* CTA */
+
+.cta{
+  text-align:center;
+  background:linear-gradient(135deg,#628e9e,#3d6979);
+  color:white;
+}
+
+.cta h2{
+  font-size:clamp(2rem,5vw,3rem);
+}
+
+footer{
+  background:#304d57;
+  color:#dce6e9;
+  text-align:center;
+  padding:35px;
+  font-size:.85rem;
+}
+
+.notice{
+  color:var(--sub);
+  font-size:.85rem;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  body{font-size:16px}
+
+  nav a:not(.contact-small){display:none}
+
+  .hero-grid,
+  .profile,
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:55px 0 70px;
+  }
+
+  .hero-grid{gap:35px}
+
+  .hero-photo{order:-1}
+
+  .photo{
+    width:210px;
+    height:210px;
+  }
+
+  .hero-text{text-align:center}
+
+  section{padding:65px 0}
+
+  .card{padding:28px 23px}
+
+  .story{padding:28px 22px}
+}
+
+
+/* Password gate */
+html:not(.sora-unlocked) body { overflow:hidden; }
+html:not(.sora-unlocked) #site-content { display:none !important; }
+html.sora-unlocked #login-screen { display:none !important; }
+#login-screen { min-height:100vh; min-height:100dvh; display:flex; align-items:center; justify-content:center; padding:24px; background:linear-gradient(135deg,#edf7f8,#fff3e6); }
+.login-panel { width:min(100%,420px); padding:42px 28px; background:#fff; border-radius:24px; box-shadow:0 15px 40px rgba(65,100,110,.15); text-align:center; }
+.login-panel h1 {font-size:1.7rem; line-height:1.4; color:#527f91;}
+.login-panel p {color:#70797b;}
+.login-panel input {display:block;width:100%;font:inherit;padding:13px 15px;border:2px solid #dbe6e8;border-radius:12px;margin:22px 0 12px;}
+.login-panel button,.logout-btn {border:0;border-radius:30px;padding:12px 26px;background:#527f91;color:white;font:inherit;font-weight:bold;cursor:pointer;}
+.login-panel button {width:100%;}
+#login-error {color:#b3261e;min-height:1.5em;font-size:.9rem;}
+.logout-btn {margin-top:18px;background:#ed9d61;}
+
 </style>
 </head>
 
 <body>
 
-<!-- ログイン画面 -->
-<div class="login-box" id="login">
+<div id="login-screen">
+  <form class="login-panel" id="login-form">
+    <div style="font-size:2.4rem" aria-hidden="true">🔐</div>
+    <h1>宙 - SORA -<br>限定公開ページ</h1>
+    <p>閲覧するにはパスワードを入力してください。</p>
+    <label for="site-password">パスワード</label>
+    <input id="site-password" type="password" autocomplete="current-password" required>
+    <button type="submit">ログインする</button>
+    <p id="login-error" role="alert" aria-live="polite"></p>
+  </form>
+</div>
+<div id="site-content">
 
-  <h1>🔐 会員専用ページ</h1>
 
-  <p>パスワードを入力してください</p>
+<header>
+<div class="container header">
 
-  <input
-    type="password"
-    id="password"
-    placeholder="パスワード"
-  >
+<a href="#top" class="logo">
+宙 - SORA -
+</a>
 
-  <button onclick="checkPassword()">
-    ログインする
-  </button>
+<nav>
+<a href="#about">そらについて</a>
+<a href="#services">できること</a>
+<a href="#contact" class="contact-small">問い合わせ</a>
+</nav>
 
-  <p id="error"></p>
+</div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="top">
+
+<div class="container hero-grid">
+
+<div class="hero-text">
+
+<div class="eyebrow">WELCOME TO SORA</div>
+
+<h1>
+そらさん、<br>
+<span>何してる人？</span>
+</h1>
+
+<p>
+潜在意識。イシリス。カード。<br>
+能力発掘。パソコン。古武術。テニス。
+</p>
+
+<p>
+いろいろやっています。
+</p>
+
+<p>
+「結局、何屋さんなの？」<br>
+と聞かれると、ちょっと困ります（笑）。
+</p>
+
+<p>
+<strong>
+でも、ずっと好きなのは、<br>
+人の心が少し軽くなる瞬間です。
+</strong>
+</p>
+
+<a class="btn" href="#services">
+そらにお願いできること
+</a>
+
+<a class="btn btn-blue" href="#about">
+そらってどんな人？
+</a>
 
 </div>
 
-<!-- ログイン後の画面 -->
-<div class="login-box" id="content">
+<div class="hero-photo">
 
-  <h1>🌸 ようこそ！</h1>
+<img
+src="sora-profile.png"
+alt="宙 隆行（そら たかゆき）"
+class="photo">
 
-  <p>ログインに成功しました✨</p>
+<p class="name">
+宙 隆行（そら たかゆき）
+</p>
 
-  <p>
-    感謝の心が<br>
-    素敵な未来をつくります💕
-  </p>
+</div>
 
-  <button onclick="logout()">
-    ログアウト
-  </button>
+</div>
+</section>
+
+
+<!-- MESSAGE -->
+
+<section class="white">
+
+<div class="container center">
+
+<div class="eyebrow">FOR YOU</div>
+
+<h2>
+人生の後半、<br>
+もう少し自分を楽しんでもいい。
+</h2>
+
+<p>
+家族のこと。仕事のこと。<br>
+周りの人のこと。
+</p>
+
+<p>
+ちゃんと頑張ってきた。
+</p>
+
+<p>
+でも、ふと、
+</p>
+
+<h3>
+「私、このままでいいのかな？」
+</h3>
+
+<p>
+と思うことはありませんか。
+</p>
+
+<p>
+すぐに答えを出さなくても大丈夫。
+</p>
+
+<p>
+まずは、自分のことを<br>
+ちょっと見てみるところから。
+</p>
+
+</div>
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="light" id="services">
+
+<div class="container">
+
+<div class="title">
+
+<div class="eyebrow">WHAT I CAN DO</div>
+
+<h2>そらにお願いできること</h2>
+
+<p>
+「面白い人なのはわかった。<br>
+でも、何をお願いできるの？」
+</p>
+
+<p>ここ、大事ですよね（笑）。</p>
+
+</div>
+
+
+<div class="services">
+
+<div class="card">
+
+<div class="icon">🌿</div>
+
+<h3>イシリス33メソッド®</h3>
+
+<p>
+人間関係や、自分でも繰り返してしまう
+心のパターンを見つめたいときに。
+</p>
+
+<p>
+嫌だった経験も、
+自分自身を知るための「学び」として
+見られるようになるかもしれません。
+</p>
+
+<div class="price">
+30分 5,000円 ／ 60分 9,500円
+</div>
+
+<br>
+
+<a href="#isiris">詳しく見る ↓</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🃏</div>
+
+<h3>カードリーディング</h3>
+
+<p>
+「どうなる？」だけでなく、
+「私は本当はどうしたい？」
+</p>
+
+<p>
+カードをきっかけに、
+言葉になっていない気持ちを
+一緒に見つけていきます。
+</p>
+
+<div class="price">
+30分 5,000円 ／ 60分 9,500円
+</div>
+
+<br>
+
+<a href="#card">詳しく見る ↓</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">☁️</div>
+
+<h3>宙ワーク</h3>
+
+<p>
+もっと気軽に、
+そらの世界を体験してみたい人へ。
+</p>
+
+<p>
+自分の心や感覚を、
+いつもとは少し違うところから
+見てみる時間です。
+</p>
+
+<div class="price">
+おひねり制 1,000円〜5,000円
+</div>
+
+<br>
+
+<a
+href="https://tiyobita8-boop.github.io/sorawork/"
+target="_blank"
+rel="noopener">
+宙ワークを見る ↗
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">✨</div>
+
+<h3>みんなの天才発掘塾</h3>
+
+<p>
+「私には特別な才能なんてない」
+と思っている人へ。
+</p>
+
+<p>
+僕自身が体験してきた変化も含めて、
+なぜこの塾に可能性を感じているのかを
+お話しします。
+</p>
+
+<a href="#tensai">そらの体験談を読む ↓</a>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ISIRIS -->
+
+<section class="white" id="isiris">
+
+<div class="container detail">
+
+<div class="eyebrow">ISIRIS 33 METHOD</div>
+
+<h2>
+人間関係って、<br>
+相手だけの問題じゃなかった。
+</h2>
+
+<p>
+「なんでこの人は、こうなんだろう」
+</p>
+
+<p>
+僕自身、人間関係について
+いろいろな経験をしてきました。
+</p>
+
+<p>
+潜在意識について学び、
+自分自身を見つめていくうちに、
+嫌だった出来事を
+「嫌な人に会った」で終わらせるのではなく、
+自分を知るための学びとして
+見られることが増えていきました。
+</p>
+
+<div class="quote">
+相手を変えるより、<br>
+自分の見え方が変わると、<br>
+世界の見え方も変わってくる。
+</div>
+
+<p>
+そして僕が感じているもう一つのこと。
+</p>
+
+<p>
+人は、自分で思っている以上に
+いろいろな能力を持っています。
+</p>
+
+<p>
+まだ使っていないもの。<br>
+自分では当たり前だと思っているもの。<br>
+「私には無理」としまい込んでいるもの。
+</p>
+
+<p>
+それを少しずつ発揮していく。
+</p>
+
+<p>
+僕にとってイシリス33メソッド®は、
+そのために使ってきた方法の一つです。
+</p>
+
+<h3>セッション料金</h3>
+
+<p>
+<strong>30分　5,000円</strong><br>
+<strong>60分　9,500円</strong>
+</p>
+
+<p class="notice">
+※感じ方や変化には個人差があります。
+医療行為・診断・治療を目的とするものではありません。
+</p>
+
+<a
+class="btn"
+href="https://forms.gle/6btU73XmAg2Fpytz8"
+target="_blank"
+rel="noopener">
+イシリスについて相談する
+</a>
+
+</div>
+</section>
+
+
+<!-- CARD -->
+
+<section class="light" id="card">
+
+<div class="container detail">
+
+<div class="eyebrow">CARD READING</div>
+
+<h2>
+「どうなる？」だけじゃなく、<br>
+「私はどうしたい？」
+</h2>
+
+<p>
+未来の答えを決めてもらうためだけではなく、
+カードを、自分自身を見るための
+きっかけとして使ってみる。
+</p>
+
+<p>
+そんなカードリーディングも
+僕は好きです。
+</p>
+
+<div class="quote">
+「あれ？ 私、本当は<br>
+こう思っていたのかも。」
+</div>
+
+<p>
+モヤモヤしていたものが
+言葉になったり、
+自分では見えていなかった良いところに
+気づいたり。
+</p>
+
+<p>
+カードを見ながら、
+一緒に話してみましょう。
+</p>
+
+<h3>料金</h3>
+
+<p>
+<strong>30分　5,000円</strong><br>
+<strong>60分　9,500円</strong>
+</p>
+
+<a
+class="btn"
+href="https://forms.gle/6btU73XmAg2Fpytz8"
+target="_blank"
+rel="noopener">
+カードリーディングを相談する
+</a>
+
+</div>
+</section>
+
+
+<!-- TENSAI -->
+
+<section class="white" id="tensai">
+
+<div class="container detail">
+
+<div class="eyebrow">MY EXPERIENCE</div>
+
+<h2>
+学んでいるのに、<br>
+なぜかうまくいかない。
+</h2>
+
+<div class="story">
+
+<p>
+僕はこれまで、
+いろいろなことを学んできました。
+</p>
+
+<p>
+学んだら実践もする。
+</p>
+
+<p>
+でも、
+</p>
+
+<h3>
+「やっているのに、
+なかなかうまくいかないな」
+</h3>
+
+<p>
+という時期がありました。
+</p>
+
+<p>
+知識は増えている。<br>
+方法も知っている。
+</p>
+
+<p>
+なのに、
+思ったように現実が動かない。
+</p>
+
+<h3>
+もっと頑張る以外の方法が
+あるのかもしれない。
+</h3>
+
+<p>
+そんな僕が取り組んだものの一つが、
+<strong>みんなの天才発掘塾</strong>でした。
+</p>
+
+<p>
+そこで右脳と左脳、
+そして両者の連携を意識した
+ワークなどに取り組みました。
+</p>
+
+<p>
+理系で、考えたり分析したりすることが
+好きな僕にとっては、
+</p>
+
+<div class="quote">
+「もっと頭を使う」のではなく、<br>
+「頭を解放していく」
+</div>
+
+<p>
+という感覚でした。
+</p>
+
+
+<h3>現実のほうにも、
+少しずつ変化が出てきました。</h3>
+
+<p>
+もちろん、
+ある日突然すべてが変わったわけではありません。
+</p>
+
+<p>
+目標を設定し、
+できることを少しずつ実践しました。
+</p>
+
+<p>
+マーケティングを学び始めたり、
+今までやっていなかったことにも
+挑戦するようになりました。
+</p>
+
+<p>
+たとえばマルシェ。
+</p>
+
+<h3>最初は、お客さん0人。</h3>
+
+<p>でした（笑）。</p>
+
+<p>
+そこから試行錯誤して、
+少しずつ売上を作れるようになりました。
+</p>
+
+<p>
+副業でも、
+僕にとって壁だった
+<strong>月10万円を超えた経験</strong>ができました。
+</p>
+
+<p>
+以前は集客できなかった講座にも、
+人に来てもらえるようになりました。
+</p>
+
+<p>
+これは「受講すれば同じ結果になる」
+という意味ではありません。
+</p>
+
+<p>
+僕自身が学び、
+行動を変えていった中で起きた変化です。
+</p>
+
+
+<h3>でも、一番の変化は
+売上だけではありませんでした。</h3>
+
+<p>
+以前は人の
+「嫌なところ」「気に食わないところ」
+が気になることもありました。
+</p>
+
+<p>
+自分自身と向き合う中で、
+そうした気持ちを少しずつ手放していくと、
+</p>
+
+<div class="quote">
+「この人、こういう
+いいところもあるんだな」
+</div>
+
+<p>
+と見られる自分が出てきました。
+</p>
+
+<p>
+相手が突然別人になったのではありません。
+</p>
+
+<p>
+<strong>自分の見方が変わった。</strong>
+</p>
+
+<p>
+僕にとって、
+これは大きな変化でした。
+</p>
+
+
+<h3>
+「自分には何もない」と決めるのは、
+まだ早いかもしれない。
+</h3>
+
+<p>
+人は、自分が思っている以上に
+いろいろなものを持っている。
+</p>
+
+<p>
+僕はそう感じています。
+</p>
+
+<p>
+僕自身も、まだ実験中です。
+</p>
+
+<p>
+だから、
+「あなたもこうなります」
+とは言いません。
+</p>
+
+<p>
+でも、
+自分の可能性をもう少し見てみたい人には、
+知ってほしい世界です。
+</p>
+
+<p class="notice">
+※上記は宙本人の体験談です。
+同様の結果や収入、能力の変化を保証するものではありません。
+</p>
+
+<a
+class="btn btn-blue"
+href="https://isirisinfinity.com/tensai"
+target="_blank"
+rel="noopener">
+みんなの天才発掘塾 公式ページを見る
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- PROFILE -->
+
+<section class="light" id="about">
+
+<div class="container profile">
+
+<div>
+
+<img
+src="sora-profile.png"
+alt="そら"
+class="photo">
+
+</div>
+
+<div>
+
+<div class="eyebrow">ABOUT SORA</div>
+
+<h2>はじめまして、そらです。</h2>
+
+<p>
+僕のことを簡単に説明すると……
+</p>
+
+<p>
+なかなか簡単には説明できません（笑）。
+</p>
+
+<p>
+化学を学んできた理系人間。
+</p>
+
+<p>
+パソコンの相談にも
+たくさん乗ってきました。
+</p>
+
+<p>
+その一方で、
+潜在意識、イシリス、カード、
+ヒーリングなどにも長く関わってきました。
+</p>
+
+<p>
+古武術もします。<br>
+テニスもします。<br>
+カラオケもモノマネも好きです。
+</p>
+
+<div class="tags">
+<span>理系</span>
+<span>潜在意識</span>
+<span>イシリス</span>
+<span>カード</span>
+<span>パソコン</span>
+<span>古武術</span>
+<span>テニス</span>
+<span>カラオケ</span>
+<span>モノマネ</span>
+</div>
+
+<p>
+こうして並べると、
+</p>
+
+<h3>
+「この人、いったい
+どこへ向かってるんだろう？」
+</h3>
+
+<p>
+と自分でも思います（笑）。
+</p>
+
+<p>
+でも、僕の中では
+不思議と全部つながっています。
+</p>
+
+<p>
+<strong>
+人って、おもしろい。
+</strong>
+</p>
+
+<p>
+それをずっと実験しているのかもしれません。
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta" id="contact">
+
+<div class="container">
+
+<h2>
+ちょっと、<br>
+そらと話してみませんか。
+</h2>
+
+<p>
+大きな悩みじゃなくても大丈夫です。
+</p>
+
+<p>
+「なんとなく気になった」<br>
+「この人、ちょっと面白そう」
+</p>
+
+<p>
+それくらいからでも構いません。
+</p>
+
+<p>
+イシリス、カードリーディング、
+宙ワークなど、
+どれを選べばいいかわからない場合も
+お気軽にどうぞ。
+</p>
+
+<a
+class="btn"
+href="https://forms.gle/6btU73XmAg2Fpytz8"
+target="_blank"
+rel="noopener">
+そらに相談・お問い合わせする
+</a>
+
+<p>
+あなたの心が、<br>
+来たときより少し軽くなりますように。
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>宙 - SORA -</p>
+
+<p>
+人生、まだまだ実験中。
+</p>
+
+<p>© SORA. All Rights Reserved.</p>
+
+  <button type="button" id="logout-button" class="logout-btn">🔓 ログアウト</button>
+</footer>
 
 </div>
 
 <script>
-
-// パスワード設定
-const correctPassword = "kansya";
-
-// パスワード確認
-function checkPassword() {
-
-  const input =
-    document.getElementById("password").value;
-
-  if (input === correctPassword) {
-
-    document.getElementById("login").style.display = "none";
-
-    document.getElementById("content").style.display = "block";
-
-    sessionStorage.setItem("authenticated", "true");
-
-  } else {
-
-    document.getElementById("error").textContent =
-      "パスワードが違います";
-
+(function () {
+  'use strict';
+  const password = 'kansya';
+  const root = document.documentElement;
+  const form = document.getElementById('login-form');
+  const input = document.getElementById('site-password');
+  const error = document.getElementById('login-error');
+  const logout = document.getElementById('logout-button');
+  function unlock() {
+    sessionStorage.setItem('sora-auth', 'yes');
+    root.classList.add('sora-unlocked');
+    input.value = '';
+    error.textContent = '';
   }
-
-}
-
-// ログアウト
-function logout() {
-
-  sessionStorage.removeItem("authenticated");
-
-  document.getElementById("login").style.display = "block";
-
-  document.getElementById("content").style.display = "none";
-
-  document.getElementById("password").value = "";
-
-}
-
-// ログイン状態を確認
-window.onload = function() {
-
-  if (sessionStorage.getItem("authenticated") === "true") {
-
-    document.getElementById("login").style.display = "none";
-
-    document.getElementById("content").style.display = "block";
-
+  function lock() {
+    sessionStorage.removeItem('sora-auth');
+    root.classList.remove('sora-unlocked');
+    location.hash = '';
+    window.scrollTo(0, 0);
+    input.focus();
   }
-
-};
-
-// Enterキーでもログイン
-document.getElementById("password")
-  .addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-      checkPassword();
-    }
-
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (input.value === password) unlock();
+    else { error.textContent = 'パスワードが違います。'; input.select(); }
   });
-
+  logout.addEventListener('click', lock);
+  if (sessionStorage.getItem('sora-auth') === 'yes') unlock();
+})();
 </script>
 
 </body>
